@@ -1,0 +1,12 @@
+@mixin avatar-icon {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+
+@mixin flex($direction: column, $align: center, $justify: space-between) {
+	display: flex;
+	flex-direction: $direction;
+	align-items: $align;
+	justify-content: $justify;
+}

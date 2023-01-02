@@ -1,18 +1,29 @@
 import react from 'react'
-import { useRef } from 'react'
 import bgAuth from '../../assets/bgAuth.jpeg'
+import cat from '../../assets/cat.png'
+import girl1 from '../../assets/girl1.png'
+import girl2 from '../../assets/girl2.png'
+import man1 from '../../assets/man1.png'
+import man2 from '../../assets/man2.png'
 import './Auth.scss'
 
-export const Auth = () => {
-	const avatarUrl = useRef('')
+const avatars = [girl1, girl2, man1, man2, cat]
 
+export const Auth = () => {
 	const [email, setEmail] = react.useState('')
 	const [password, setPassword] = react.useState('')
 	const [name, setName] = react.useState('')
 
+	const [activeAvatar, setActiveAvatar] = react.useState(0)
+
 	const handleSubmit = e => {
 		e.preventDefault()
+
 		console.log({ email, password, name })
+	}
+
+	const handleActiveAvatar = avatar => {
+		setActiveAvatar(avatar)
 	}
 
 	return (
@@ -58,14 +69,17 @@ export const Auth = () => {
 						value={name}
 					/>
 
-					<button onClick={() => avatarUrl.current.click()}>image</button>
-					<input
-						ref={avatarUrl}
-						type='file'
-						hidden
-						accept='.jpg, .jpeg, .png'
-					/>
-
+					<div className='auth_avatars'>
+						{avatars.map((avatar, index) => (
+							<img
+								key={index}
+								className={activeAvatar === index ? 'auth_avatar_img--active' : 'auth_avatar_img'}
+								src={avatar}
+								alt='avatar'
+								onClick={() => handleActiveAvatar(index)}
+							/>
+						))}
+					</div>
 					<button
 						type='submit'
 						value='Submit'>
