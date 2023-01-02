@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { Auth } from './page/auth/Auth'
-import { Chat } from './page/Chat'
+import { Main } from './page/main/Main'
 import { NotFound } from './page/NotFound'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 			<Routes>
 				<Route
 					path='/chat'
-					element={<Chat />}
+					element={<Main />}
 				/>
 				<Route
 					path='/'
