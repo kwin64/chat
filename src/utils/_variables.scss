@@ -1,6 +1,6 @@
-@mixin avatar-icon {
-	width: 45px;
-	height: 45px;
+@mixin avatar-icon($width: 45px, $height: 45px) {
+	width: $width;
+	height: $height;
 	border-radius: 50%;
 }
 
@@ -9,4 +9,10 @@
 	flex-direction: $direction;
 	align-items: $align;
 	justify-content: $justify;
+}
+
+@mixin box-shadow($one: 0px, $two: 2px, $three: 34px, $four: 2px, $color: rgba(39, 172, 225, 255)) {
+	-webkit-box-shadow: $one $two $three $four $color;
+	-moz-box-shadow: $one $two $three $four $color;
+	box-shadow: $one $two $three $four $color;
 }

@@ -69,18 +69,22 @@ export const Auth = () => {
 						value={name}
 					/>
 
-					<div className='auth_avatars'>
+					<div className='auth__avatars'>
 						{avatars.map((avatar, index) => (
 							<img
 								key={index}
-								className={activeAvatar === index ? 'auth_avatar_img--active' : 'auth_avatar_img'}
+								className={
+									activeAvatar === index ? 'auth__avatar__img--active' : 'auth__avatar__img'
+								}
 								src={avatar}
 								alt='avatar'
 								onClick={() => handleActiveAvatar(index)}
 							/>
 						))}
 					</div>
+
 					<button
+						className='auth__button'
 						type='submit'
 						value='Submit'>
 						submit
