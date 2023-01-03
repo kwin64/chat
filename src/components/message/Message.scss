@@ -1,8 +1,33 @@
+@import '../../utils/_variables.scss';
+
 .message__container {
-	min-height: 50px;
-	min-width: 100px;
-	color: white;
+	@include flex($direction: row, $align: center, $justify: start);
+	background-color: transparent;
+	margin: 10px;
 	opacity: 0.9;
-	border: 1px solid red;
-	margin: 20px;
+	border: 1px solid transparent;
+
+	.message__avatar {
+		@include avatar-icon;
+		cursor: pointer;
+		border: 1px solid transparent;
+		transition: 0.3s;
+
+		&:hover {
+			border: 1px solid #4eac6d;
+		}
+	}
+
+	.message__content {
+		color: white;
+		border-radius: 5px;
+		padding: 10px;
+		margin-left: 20px;
+	}
+
+	.message__createTime {
+		background-color: transparent;
+		color: white;
+		margin-left: 20px;
+	}
 }

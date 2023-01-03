@@ -12,7 +12,7 @@ import { sidebarItems } from '../../utils/consts'
 import './Main.scss'
 
 const arrUsers = Array(10).fill({ name: 'John', avatar: avatar })
-const arrMessages = Array(20).fill('message')
+const arrMessages = Array(20).fill('messag;asldk ;laskd;l ks;lakd;l kasl;dk e')
 
 export const Main = () => {
 	const navigate = useNavigate()
