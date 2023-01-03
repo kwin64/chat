@@ -1,6 +1,14 @@
 import React from 'react'
+import profile from '../../assets/profile.png'
+import './Profile.scss'
 
 const Profile = () => {
-	return <div>Profile</div>
+	return (
+		<img
+			className='profile'
+			src={profile}
+			alt='profile'
+		/>
+	)
 }
 export default Profile

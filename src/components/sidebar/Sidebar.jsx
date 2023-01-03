@@ -1,13 +1,18 @@
 import React from 'react'
-import Logout from '../logout/Logout'
 import Profile from '../profile/Profile'
 import Settings from '../settings/Settings'
+import chat from '../../assets/chat.png'
+import './Sidebar.scss'
 
 const Sidebar = () => {
 	return (
 		<div>
 			<Profile />
-      <div>Users</div>
+			<img
+				className='chat'
+				src={chat}
+				alt=''
+			/>
 			<Settings />
 		</div>
 	)

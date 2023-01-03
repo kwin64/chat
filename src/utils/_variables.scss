@@ -16,3 +16,15 @@
 	-moz-box-shadow: $one $two $three $four $color;
 	box-shadow: $one $two $three $four $color;
 }
+
+@mixin item-sidebar {
+	width: 100%;
+	height: 80px;
+	cursor: pointer;
+	padding: 25px;
+	transition: 0.3s;
+
+	&:hover {
+		background-color: #4eac6d;
+	}
+}

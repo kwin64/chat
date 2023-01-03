@@ -1,0 +1,9 @@
+@import '../../utils/_variables.scss';
+
+.logout {
+	@include item-sidebar;
+
+	&:hover {
+		background-color: rgb(131, 23, 23);
+	}
+}

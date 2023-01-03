@@ -1,0 +1,18 @@
+@import '../../utils/_variables.scss';
+
+.header {
+	@include flex($direction: row, $align: center, $justify: start);
+	height: 100%;
+
+	.header__user__avatar {
+		@include avatar-icon($width: 45px, $height: 45px);
+		margin: 0 10px;
+	}
+	.header__user__info {
+		.header__user__name {
+		}
+		.header__user__activity {
+			font-size: 15px;
+		}
+	}
+}

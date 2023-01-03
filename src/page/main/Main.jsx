@@ -8,17 +8,17 @@ import './Main.scss'
 
 const arrUsers = Array(10).fill('User')
 const arrMessages = Array(20).fill('message')
-const activeSidebar = '' //profile settings users 
+const activeSidebar = 'chat' //profile chat settings 
+
 export const Main = () => {
 	return (
 		<div className='main__wrapper'>
 			<div className='users__container'>
 				<div className='users__sidebar'>
 					<Sidebar />
-					<Logout/>
+					<Logout />
 				</div>
 				<div className='users__main'>
-
 					{arrUsers.map((user, index) => (
 						<User
 							key={index}
