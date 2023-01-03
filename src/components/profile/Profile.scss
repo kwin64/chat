@@ -1,5 +1,18 @@
 @import '../../utils/_variables.scss';
 
-.profile {
-	@include item-sidebar;
+.profile__container {
+	width: 100%;
+	@include flex($justify: center, $align: center);
+
+	.profile__title {
+		@include flex($justify: center);
+		height: 20vh;
+		letter-spacing: 4px;
+		font-weight: normal;
+	}
+
+	.profile__img {
+		width: 50%;
+		margin-bottom: 5vh;
+	}
 }

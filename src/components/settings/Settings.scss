@@ -1,5 +1,28 @@
 @import '../../utils/_variables.scss';
 
-.settings {
-	@include item-sidebar;
+.settings__container {
+	width: 100%;
+	@include flex($justify: center, $align: center);
+
+	button {
+		@include btn;
+		margin-bottom: 5vh;
+	}
+
+	input {
+		background-color: #fff;
+		letter-spacing: 1px;
+		margin: 5px 0;
+	}
+
+	.settings__title {
+		@include flex($justify: center);
+		height: 20vh;
+		letter-spacing: 4px;
+		font-weight: normal;
+	}
+
+	.settings__img {
+		width: 50%;
+	}
 }

@@ -14,10 +14,37 @@
 		width: 30vw;
 
 		.users__sidebar {
-			@include flex($justify: space-between);
+			@include flex($justify: start);
 			width: 100px;
 			height: 100%;
 			border-right: 1px solid gray;
+			position: relative;
+
+			.active__item {
+				@include item-sidebar;
+				background-color: #4eac6d;
+			}
+
+			.profile {
+				@include item-sidebar;
+			}
+
+			.chat {
+				@include item-sidebar;
+			}
+			.settings {
+				@include item-sidebar;
+			}
+
+			.logout {
+				@include item-sidebar;
+				position: absolute;
+				bottom: 0;
+
+				&:hover {
+					background-color: rgb(131, 23, 23);
+				}
+			}
 		}
 
 		.users__main {
