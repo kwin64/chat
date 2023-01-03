@@ -1,5 +1,5 @@
 import React from 'react'
-import profile from '../../assets/profile.png'
+import avatar from '../../assets/man1.png'
 import './Header.scss'
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
 		<div className='header'>
 			<img
 				className='header__user__avatar'
-				src={profile}
+				src={avatar}
 				alt='avatar'
 			/>
 			<div className='header__user__info'>

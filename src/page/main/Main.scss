@@ -122,6 +122,19 @@
 		.chat__footer {
 			height: 15vh;
 			border: 1px solid gray;
+			@include flex($justify: center, $align: center);
+
+			.react-emoji {
+				width: 60vw;
+
+				.react-input-emoji--container {
+					.react-input-emoji--wrapper {
+						color: #fff;
+						border: none;
+						background-color: transparent;
+					}
+				}
+			}
 		}
 	}
 }

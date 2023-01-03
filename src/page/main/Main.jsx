@@ -10,6 +10,7 @@ import Settings from '../../components/settings/Settings'
 import User from '../../components/user/User'
 import { sidebarItems } from '../../utils/consts'
 import './Main.scss'
+import InputEmoji from 'react-input-emoji'
 
 const arrUsers = Array(10).fill({ name: 'John', avatar: avatar })
 const arrMessages = Array(20).fill('messag;asldk ;laskd;l ks;lakd;l kasl;dk e')
@@ -17,6 +18,11 @@ const arrMessages = Array(20).fill('messag;asldk ;laskd;l ks;lakd;l kasl;dk e')
 export const Main = () => {
 	const navigate = useNavigate()
 	const [activeItemSidebar, setActiveItemSidebar] = react.useState(1)
+	const [text, setText] = react.useState('')
+
+	function handleOnEnter(text) {
+		console.log('enter', text)
+	}
 
 	const handleActiveItemSidebar = item => {
 		setActiveItemSidebar(item)
@@ -78,7 +84,17 @@ export const Main = () => {
 						/>
 					))}
 				</div>
-				<div className='chat__footer'>footer</div>
+				<div className='chat__footer'>
+					<InputEmoji
+						value={text}
+						onChange={setText}
+						cleanOnEnter
+						onEnter={handleOnEnter}
+						placeholder='Type a message'
+						borderRadius='2px'
+						className='chat__input__form'
+					/>
+				</div>
 			</div>
 		</div>
 	)
