@@ -1,7 +1,7 @@
 import React from 'react'
 import './Message.scss'
 
-const Message = () => {
-	return <div className='message__container'>Message</div>
+const Message = ({ message }) => {
+	return <div className='message__container'>{message}</div>
 }
 export default Message
