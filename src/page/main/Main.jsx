@@ -1,6 +1,7 @@
 import react from 'react'
 import { useNavigate } from 'react-router-dom'
 import bgChat from '../../assets/bgChat.jpeg'
+import avatar from '../../assets/man2.png'
 import logout from '../../assets/logout.png'
 import Header from '../../components/header/Header'
 import Message from '../../components/message/Message'
@@ -10,7 +11,7 @@ import User from '../../components/user/User'
 import { sidebarItems } from '../../utils/consts'
 import './Main.scss'
 
-const arrUsers = Array(10).fill('User')
+const arrUsers = Array(10).fill({ name: 'John', avatar: avatar })
 const arrMessages = Array(20).fill('message')
 
 export const Main = () => {
@@ -43,13 +44,18 @@ export const Main = () => {
 				</div>
 				<div className='users__main'>
 					{activeItemSidebar === 0 && <Profile />}
-					{activeItemSidebar === 1 &&
-						arrUsers.map((user, index) => (
-							<User
-								key={index}
-								user={user}
-							/>
-						))}
+					{activeItemSidebar === 1 && (
+						<div className='chat__information'>
+							<h1 className='chat__title'>Chat</h1>
+							{arrUsers.map((user, index) => (
+								<User
+									key={index}
+									user={user}
+								/>
+							))}
+						</div>
+					)}
+
 					{activeItemSidebar === 2 && <Settings />}
 				</div>
 			</div>
