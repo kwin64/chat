@@ -11,6 +11,7 @@ import User from '../../components/user/User'
 import { sidebarItems } from '../../utils/consts'
 import './Main.scss'
 import InputEmoji from 'react-input-emoji'
+import { io } from 'socket.io-client'
 
 const arrUsers = Array(10).fill({ name: 'John', avatar: avatar })
 const arrMessages = Array(20).fill('messag;asldk ;laskd;l ks;lakd;l kasl;dk e')
@@ -19,6 +20,7 @@ export const Main = () => {
 	const navigate = useNavigate()
 	const [activeItemSidebar, setActiveItemSidebar] = react.useState(1)
 	const [text, setText] = react.useState('')
+	const [data, setData] = react.useState({})
 
 	function handleOnEnter(text) {
 		console.log('enter', text)
@@ -27,6 +29,22 @@ export const Main = () => {
 	const handleActiveItemSidebar = item => {
 		setActiveItemSidebar(item)
 	}
+
+	const socket = io('http://localhost:8000')
+	const name = 'Admin'
+	const room = 'All'
+
+	react.useEffect(() => {
+		socket.emit('join', { name, room })
+	}, [name, room])
+
+	react.useEffect(() => {
+		socket.on('message', data => {
+			setData(data)
+		})
+	}, [name, room])
+
+	console.log(data)
 
 	return (
 		<div className='main__wrapper'>
@@ -77,12 +95,12 @@ export const Main = () => {
 						backgroundPosition: 'center center',
 						backgroundSize: 'cover'
 					}}>
-					{arrMessages.map((message, index) => (
+					{/* {arrMessages.map((message, index) => (
 						<Message
 							key={index}
 							message={message}
 						/>
-					))}
+					))} */}
 				</div>
 				<div className='chat__footer'>
 					<InputEmoji
