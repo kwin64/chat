@@ -1,29 +1,35 @@
 import react from 'react'
 import bgAuth from '../../assets/bgAuth.jpeg'
-import cat from '../../assets/cat.png'
-import girl1 from '../../assets/girl1.png'
-import girl2 from '../../assets/girl2.png'
-import man1 from '../../assets/man1.png'
-import man2 from '../../assets/man2.png'
-import './Auth.scss'
+import AuthService from '../../services/AuthService'
+import { avatars } from '../../utils/consts'
 
-const avatars = [girl1, girl2, man1, man2, cat]
+import './Auth.scss'
 
 export const Auth = () => {
 	const [email, setEmail] = react.useState('')
 	const [password, setPassword] = react.useState('')
 	const [name, setName] = react.useState('')
 
+	const [imageUrl, setImageUrl] = react.useState(avatars[0])
+
 	const [activeAvatar, setActiveAvatar] = react.useState(0)
 
-	const handleSubmit = e => {
-		e.preventDefault()
-
-		console.log({ email, password, name })
+	const handleSubmit = async e => {
+		try {
+			e.preventDefault()
+			const fields = {
+				email: email,
+				password: password,
+				name: name,
+				avatarUrl: imageUrl
+			}
+			console.log(fields)
+		} catch (error) {}
 	}
 
-	const handleActiveAvatar = avatar => {
-		setActiveAvatar(avatar)
+	const handleActiveAvatar = (index, avatar) => {
+		setActiveAvatar(index)
+		setImageUrl(avatar)
 	}
 
 	return (
@@ -78,7 +84,7 @@ export const Auth = () => {
 								}
 								src={avatar}
 								alt='avatar'
-								onClick={() => handleActiveAvatar(index)}
+								onClick={() => handleActiveAvatar(index, avatar)}
 							/>
 						))}
 					</div>
