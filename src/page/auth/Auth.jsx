@@ -9,10 +9,25 @@ export const Auth = () => {
 	const [email, setEmail] = react.useState('')
 	const [password, setPassword] = react.useState('')
 	const [name, setName] = react.useState('')
+	const inputAvatarRef = react.useRef(avatars[0])
 
 	const [imageUrl, setImageUrl] = react.useState(avatars[0])
 
 	const [activeAvatar, setActiveAvatar] = react.useState(0)
+
+	const handleChangeImg = async e => {
+		try {
+			const formData = new FormData()
+			const file = e.target.files[0]
+			console.log(file)
+			// formData.append('image', file)
+			// const { data } = await AuthService.uploadImageForUser(formData)
+			setImageUrl(data.url)
+		} catch (error) {
+			console.log(error)
+			alert('Error uploading image')
+		}
+	}
 
 	const handleSubmit = async e => {
 		try {
@@ -30,6 +45,7 @@ export const Auth = () => {
 	const handleActiveAvatar = (index, avatar) => {
 		setActiveAvatar(index)
 		setImageUrl(avatar)
+		inputAvatarRef.current.click()
 	}
 
 	return (
@@ -88,6 +104,13 @@ export const Auth = () => {
 							/>
 						))}
 					</div>
+
+					<input
+						ref={inputAvatarRef}
+						type='file'
+						// onChange={handleChangeImg}
+						hidden={true}
+					/>
 
 					<button
 						className='auth__button'
